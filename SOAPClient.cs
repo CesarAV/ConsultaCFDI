@@ -35,24 +35,6 @@ using System.Threading.Tasks;
 
 public class SoapClient
 {
-    public class ParametroLlamada
-    {
-        public ParametroLlamada(string nombre, string descripcion)
-        {
-            Nombre = nombre;
-            Descripcion = descripcion;
-        }
-
-        public string Nombre { get; set; }
-
-        public string Descripcion { get; set; }
-
-        public string Valor { get; set; }
-
-
-        public string QueryParam => $"{Nombre}={Valor}";
-    }
-
     public static void Main()
     {
         
@@ -135,4 +117,23 @@ public class SoapClient
         var array = entradas.Select(pl => pl.QueryParam).ToArray();
         return "?" + string.Join("&", array);
     }
+
+    public class ParametroLlamada
+    {
+        public ParametroLlamada(string nombre, string descripcion)
+        {
+            Nombre = nombre;
+            Descripcion = descripcion;
+        }
+
+        public string Nombre { get; set; }
+
+        public string Descripcion { get; set; }
+
+        public string Valor { get; set; }
+
+
+        public string QueryParam => $"{Nombre}={Valor}";
+    }
+
 }
